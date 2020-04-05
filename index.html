@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="autotype.css">
+    <script src="autotype.js"></script>
+    <title>AutoType</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__type"></div>
+    </div>
+    <script>
+        var a = new AutoType({
+  selector: "div",
+  words: [
+    {
+      text: "India",
+      styles: { color: "red", "font-size": "24px" }
+    },
+    {
+      text: "Australia",
+      styles: { color: "blue" }
+    }
+  ],
+  timeGap: 100,
+  timeDelay: 0,
+  cursorDuration: 300,
+  isAlternate: true,
+  loop: true,
+  showLast: true,
+  cursor: "blinker",
+  cursorAnimate: true
+});
+
+    </script>
+</body>
+</html>
