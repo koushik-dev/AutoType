@@ -7,21 +7,28 @@
     <link rel="stylesheet" href="autotype.css">
     <script src="autotype.js"></script>
     <title>AutoType</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
+<style>
+* {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 3rem;
+}
+</style>
 <body>
     <div class="container">
-        <div class="container__type"></div>
+        Type <span class="container__type"></span>
     </div>
     <script>
         var a = new AutoType({
-  selector: "div",
+  selector: ".container__type",
   words: [
     {
-      text: "India",
-      styles: { color: "red", "font-size": "24px" }
+      text: "Words",
+      styles: { color: "red", "background-color": "green" }
     },
     {
-      text: "Australia",
+      text: "Letters",
       styles: { color: "blue" }
     }
   ],

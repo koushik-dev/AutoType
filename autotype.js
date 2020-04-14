@@ -17,13 +17,13 @@
       deleteComplete: new Event("deleteComplete"),
     },
     cursorType = {
-      block: "border-left",
+      block: "background-color",
       blinker: "border-left",
       underline: "border-bottom",
     },
     cursorStyle = {
-      block: "10px solid black",
-      blinker: "3px solid black",
+      block: "black",
+      blinker: "5px solid black",
       underline: "2px solid black",
     };
 
@@ -78,6 +78,7 @@
   function updateStyle(styles) {
     if (styles) {
       options.elem.style = "";
+      options.elem.style.lineHeight = '1';
       Object.keys(styles).map(
         (style) => (options.elem.style[style] = styles[style])
       );
@@ -98,12 +99,8 @@
     options.textIndex = (options.textIndex + 1) % options.words.length;
     options.text = getWord();
     updateStyle(objectValue(options.words[options.textIndex], "styles"));
-    updateCursorHeight(
-      objectValue(
-        objectValue(options.words[options.textIndex], "styles"),
-        "font-size"
-      )
-    );
+    updateCursorWidth();
+    updateCursorHeight();
   }
 
   function preRequisites() {
@@ -137,6 +134,7 @@
             options.childSelector = createAndPrependElement(options.selector);
             updateElement();
             updateStyle(options.words[options.textIndex]["styles"]);
+            updateCursorWidth();
             updateTextNode(options.words[options.words.length - 1]["text"]);
           }
         } else {
@@ -180,10 +178,13 @@
       .removeChild(document.querySelector(options.cursorId));
   }
 
-  function updateCursorHeight(height = "20px") {
-    height &&
+  function updateCursorHeight() {    
       options.cursorId &&
-      (document.querySelector(options.cursorId).style.height = height);
+      (document.querySelector(options.cursorId).style.height = 'auto');
+  }
+
+  function updateCursorWidth() {
+    document.querySelector(options.cursorId).style.width = getComputedStyle(options.elem).fontSize;
   }
 
   function clearParentElement(selector) {
@@ -192,7 +193,7 @@
 
   function makeParentElement(selector) {
     var parentEl = document.querySelector(selector);
-    parentEl.style.display = "flex";
+    parentEl.style.display = "inline-flex";
     clearParentElement(selector);
   }
 
