@@ -1,5 +1,5 @@
-# AutoType
-Auto type javascript plugin. Automatically type and delete the text letter by letter.
+# GhostType
+Ghost type is a javascript plugin. Automatically type and delete the text.
 
 # Features
  - Set text typing speed.
