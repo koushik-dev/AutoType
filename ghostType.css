@@ -1,14 +1,29 @@
 body {
     font-family: 'poppins';
+    max-width: 1440px;
 }
 header h2 {
     font-family: 'Bangers', cursive;
 }
+.editor__actions {
+    background-color: #f35c55;
+    box-shadow: 20px 0 #fdbd34, 40px 0 #62ca40;
+}
+
+@media screen and (min-width: 768px) {
+    .report {
+        box-shadow: 7px 7px 15px #8a8a8a;
+    }
+}
+
+
+
+
 .cursor {
     display: inline-block;
-    width: 10px;
-    height: 20px;
+    position: absolute;
     animation-name: flicker;
+    animation-duration: 300ms;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
